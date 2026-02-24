@@ -39,6 +39,7 @@ Windows: дорога в WSL (https://learn.microsoft.com/ru-ru/windows/wsl/inst
 
 # Использование
 chmod +x fish2cli.sh
+
 ./fish2cli.sh
 
 # Пример вывода
