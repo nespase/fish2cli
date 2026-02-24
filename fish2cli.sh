@@ -26,14 +26,12 @@ echo "13) Тюмень      14) Сургут      15) Новосибирск 16)
 echo -ne "\e[1;36mНомер: \e[0m"
 read CITY_NUM < /dev/tty
 
-# Кастомная локация
 if [ "$CITY_NUM" = "3" ]; then
     echo -e "\n\e[1;33mВведи координаты в формате: широта долгота\e[0m"
     echo -e "\e[1;33mПример: 58.61 37.89\e[0m"
     echo -ne "\e[1;36m→ \e[0m"
     read LAT LON < /dev/tty
 
-    # Валидация (простая)
     if [[ -z "$LAT" || -z "$LON" ]]; then
         echo -e "\e[1;31mОшибка: нужно ввести и широту, и долготу!\e[0m"
         exit 1
@@ -41,13 +39,11 @@ if [ "$CITY_NUM" = "3" ]; then
 
     NAME="Кастом ($LAT, $LON)"
 
-    # Спрашиваем, сохранить ли локацию
     echo -e "\n\e[1;36mДобавить эту локацию в скрипт?\e[0m"
     echo -ne "\e[1;33mВведи название (или Enter чтобы пропустить): \e[0m"
     read SAVE_NAME < /dev/tty
 
     if [ -n "$SAVE_NAME" ]; then
-        # Экранируем кавычки в названии
         SAVE_NAME=$(echo "$SAVE_NAME" | sed 's/"/\\"/g')
         echo -e "\n\e[1;32mСкопируй и вставь это в скрипт после case:\e[0m"
         echo -e "\e[1;33m--------------------------------------------------\e[0m"
@@ -58,7 +54,7 @@ if [ "$CITY_NUM" = "3" ]; then
     fi
 
 else
-    # Стандартные локации
+
     case $CITY_NUM in
         1) NAME="Астрахань"; LAT="46.34"; LON="48.04" ;;
         2) NAME="Уфа"; LAT="54.74"; LON="55.96" ;;
@@ -79,7 +75,6 @@ else
     esac
 fi
 
-# Дальше код без изменений...
 P1="https://api.open-meteo.com/v1/forecast?latitude=${LAT}"
 P2="&longitude=${LON}&current=temperature_2m,surface_pressure,wind_speed_10m,wind_direction_10m,is_day,cloud_cover&wind_speed_unit=kmh"
 URL="${P1}${P2}"
