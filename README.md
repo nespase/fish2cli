@@ -26,9 +26,13 @@ chmod +x fish2cli.sh
 ```
 # Зависимости
 Скрипту нужны: curl, python3, bc
+
 Ubuntu/Debian: sudo apt install curl python3 bc
+
 Arch: sudo pacman -S curl python bc
+
 macOS: brew install curl python bc
+
 Windows: дорога в WSL (https://learn.microsoft.com/ru-ru/windows/wsl/install)
 
 ———————————————————————————————————————————————————————————————
