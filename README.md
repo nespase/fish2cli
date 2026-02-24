@@ -20,7 +20,7 @@ Bash-скрипт для прогноза клёва прямо в термин�
 # Установка
 
 ```bash
-git clone https://github.com/твой-логин/fish2cli
+git clone https://github.com/nespase/fish2cli
 cd fish2cli
 chmod +x fish2cli.sh
 ```
